@@ -260,6 +260,48 @@
       font-size: 0.9rem;
       color: #1976d2;
     }
+	
+	@keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .table {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .table thead {
+      background: linear-gradient(135deg, #95A3AA 0%, #7a8a92 100%);
+      color: white;
+    }
+
+    .table thead th {
+      padding: 15px;
+      font-weight: 600;
+      border: none;
+    }
+
+    .table tbody tr {
+      transition: all 0.2s ease;
+    }
+
+    .table tbody tr:hover {
+      background-color: #f8f9fa;
+      transform: scale(1.01);
+    }
+
+    .table tbody td {
+      padding: 12px;
+      vertical-align: middle;
+    }
 
     .footer-text {
       text-align: center;
@@ -298,17 +340,15 @@
 </head>
 <body>
 
-<div class="container" style="max-width: 900px;">
+<div class="container" style="max-width: 1200px;">
   <div class="main-card">
     
     <!-- Header Section -->
     <div class="header-section">
       <div class="logo-section">
         <div class="logo-placeholder">
-          <!-- GANTI DENGAN BASE64 CODE LOGO MDPH ANDA -->
-          <!-- Contoh: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA... -->
-          <img src="data:image/png;base64,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" alt="Logo MDPH" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
-        </div>
+        <img src="https://drive.google.com/thumbnail?id=1t0yW_wCJF7Va86C6BYVtZWCn39RbPBvL&sz=00" alt="Logo MDPH" style="width: 80%; height: 80%; object-fit: contain;">
+          </div>
         <div class="header-title">
           <h1>MAJLIS DAERAH PENGKALAN HULU</h1>
           <p>Sistem Pendaftaran Pembekal & Kontraktor</p>
@@ -339,6 +379,7 @@
             <option value="">-- Sila Pilih --</option>
             <option>Pendaftaran Baru</option>
             <option>Pendaftaran Semula</option>
+            <option>Kemaskini Maklumat</option>
           </select>
         </div>
 
@@ -398,7 +439,7 @@
         <!-- Bahagian 3: Butiran Syarikat -->
         <div class="section-title">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/>
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
           </svg>
           Butiran Syarikat
         </div>
@@ -457,76 +498,191 @@
           <label class="form-label">Alamat E-mel<span class="required-star">*</span></label>
           <input name="emel" type="email" class="form-control" placeholder="nama@syarikat.com" required>
         </div>
-
-    </div>
-
-	<div class="row">
-
-        <div class="col-sm-12">   
- 
-	<label class="form-label mt-4">
-  Maklumat Pengarah / Pemilik <span class="required-star">*</span>
-</label>
-
-<div class="table-responsive">
-  <table class="table table-bordered" id="directorTable">
-    <thead>
-      <tr class="text-center" style="background-color:#95A3AA">
-        <th width="5%">No</th>
-        <th>Nama</th>
-        <th>No. Kad Pengenalan</th>
-        <th>Alamat</th>
-		<th>Bandar</th>
-		<th>Negeri</th>
-		<th>Poskod</th>
-      </tr>
-    </thead>
-
-    <tbody id="directorBody">
-  <tr>
-    <td class="text-center bil">1</td>
-
-    <td>
-      <input type="text" class="form-control" name="namaDirector[]" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="IcDirector[]" maxlength="12" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="Alamat[]" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="Bandar[]" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="Negeri[]" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="Poskod[]" maxlength="5" required>
-    </td>
-
-    <td class="text-center">
-      <button type="button" class="btn btn-success btn-sm" onclick="addDirectorRow()">+</button>
-    </td>
-  </tr>
-</tbody>
-
-  </table>
-</div>
-
-              
-            </table> 
-
-            </div>     
-
+		
+		<!-- Bahagian 4: Maklumat Pengarah / Pemilik -->
+        <div class="section-title">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+			<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0 "/>
+			</svg>Maklumat Pengarah / Pemilik
+        </div>
+		
+		<div class="table-responsive">
+          <table class="table table-bordered">
+            <thead style="background-color:#95A3AA">
+              <tr class="text-center">
+                <th>No</th>
+                <th>Nama Penuh</th>
+                <th>No. Kad Pengenalan</th>
+                <th>Alamat</th>
+                <th>Bandar</th>
+                <th>Negeri</th>
+                <th>Poskod</th>
+                <th>Tambah</th>
+              </tr>
+            </thead>
+            <tbody id="directorBody">
+              <tr>
+                <td class="text-center bil">1</td>
+                <td><input type="text" class="form-control" name="pengarah_nama" required></td>
+                <td><input type="text" class="form-control" name="pengarah_ic" required></td>
+                <td><input type="text" class="form-control" name="pengarah_alamat" required></td>
+                <td><input type="text" class="form-control" name="pengarah_bandar" required></td>
+                <td><input type="text" class="form-control" name="pengarah_negeri" required></td>
+                <td><input type="text" class="form-control" name="pengarah_poskod" required></td>
+                <td class="text-center">
+                  <button type="button" class="btn btn-success btn-sm" onclick="addDirectorRow()">+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+		
+		<div class="row mt-3">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">No. Pendaftaran Syarikat<span class="required-star">*</span></label>
+            <input type="text" class="form-control" name="no_pendaftaran_syarikat" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Taraf Syarikat<span class="required-star">*</span></label>
+            <select class="form-select" name="taraf_syarikat" required>
+              <option value="">-- Sila Pilih --</option>
+              <option>Bumiputera</option>
+              <option>Bukan Bumiputera</option>
+              <option>Syarikat Luar Negeri</option>
+            </select>
+          </div>
         </div>
 
-    </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Jenis Pendaftaran<span class="required-star">*</span></label>
+            <select class="form-select" name="jenis_pendaftaran_syarikat" required>
+              <option value="">-- Sila Pilih --</option>
+              <option>Persendirian</option>
+              <option>Perkongsian</option>
+              <option>Sendirian Berhad</option>
+              <option>Berhad</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Tarikh Mula<span class="required-star">*</span></label>
+            <input type="date" class="form-control" name="tarikh_mula" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Tarikh Tamat</label>
+            <input type="date" class="form-control" name="tarikh_tamat">
+          </div>
+        </div>
+
+        <h6 class="mt-4 fw-bold">Maklumat SSM</h6>
+
+        <div class="row mt-3">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">No. Pendaftaran<span class="required-star">*</span></label>
+            <input type="text" class="form-control" name="ssm_no_pendaftaran" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Tarikh Daftar<span class="required-star">*</span></label>
+            <input type="date" class="form-control" name="ssm_tarikh_daftar" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Tarikh Tamat Lesen<span class="required-star">*</span></label>
+            <input type="date" class="form-control" name="ssm_tarikh_tamat" required>
+          </div>
+        </div>
+
+        <div class="mb-4 file-upload-wrapper">
+          <label class="form-label">Dokumen SSM<span class="required-star">*</span> <small>(Max 4)</small></label>
+          <input type="file" class="form-control" id="dokumenSSM" multiple accept=".pdf,.jpg,.jpeg,.png" required>
+        </div>
+
+        <div class="border rounded p-3 bg-light mb-4">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="agreeSSM" name="agree_ssm" required>
+            <label class="form-check-label" for="agreeSSM">
+              Saya mengesahkan semua maklumat adalah benar dan tepat
+            </label>
+          </div>
+        </div>
+
+        <h6 class="mt-4 fw-bold">MOF <small>(Jika Ada)</small></h6>
+
+        <div class="row mt-3">
+          <div class="col-md-4 mb-3">
+            <label class="form-label">No. Sijil</label>
+            <input type="text" class="form-control" name="mof_no_sijil">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">No. Rujukan</label>
+            <input type="text" class="form-control" name="mof_no_rujukan">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Tempoh Sah Laku</label>
+            <input type="date" class="form-control" name="mof_tempoh_sah">
+          </div>
+        </div>
+
+        <h6 class="mt-4 fw-bold">Maklumat CIDB</h6>
+
+        <div class="row mt-3">
+          <div class="col-md-4 mb-3">
+            <label class="form-label">No. Pendaftaran<span class="required-star">*</span></label>
+            <input type="text" class="form-control" name="cidb_no_pendaftaran" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Tarikh Daftar<span class="required-star">*</span></label>
+            <input type="date" class="form-control" name="cidb_tarikh_daftar" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label class="form-label">Tarikh Tamat<span class="required-star">*</span></label>
+            <input type="date" class="form-control" name="cidb_tarikh_tamat" required>
+          </div>
+        </div>
+
+        <table class="table table-bordered">
+          <thead style="background-color:#95A3AA">
+            <tr class="text-center">
+              <th>Pilih</th>
+              <th>Kelas</th>
+              <th>Harga (RM)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+              <td><input type="radio" name="cidb_gred" value="G1|50" required></td>
+              <td>GRED G1</td>
+              <td>50.00</td>
+            </tr>
+            <tr class="text-center">
+              <td><input type="radio" name="cidb_gred" value="G2|75"></td>
+              <td>GRED G2</td>
+              <td>75.00</td>
+            </tr>
+            <tr class="text-center">
+              <td><input type="radio" name="cidb_gred" value="G3|100"></td>
+              <td>GRED G3</td>
+              <td>100.00</td>
+            </tr>
+            <tr class="text-center">
+              <td><input type="radio" name="cidb_gred" value="G4/G5|150"></td>
+              <td>GRED G4/G5</td>
+              <td>150.00</td>
+            </tr>
+            <tr class="text-center">
+              <td><input type="radio" name="cidb_gred" value="G6/G7|250"></td>
+              <td>GRED G6/G7</td>
+              <td>250.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mb-4 file-upload-wrapper">
+          <label class="form-label">Dokumen CIDB<span class="required-star">*</span> <small>(Max 4)</small></label>
+          <input type="file" class="form-control" id="dokumenCIDB" multiple accept=".pdf,.jpg,.jpeg,.png" required>
+        </div>
 
         <button class="btn btn-primary btn-submit w-100" type="submit" id="submitBtn">
           <span id="btnText">Hantar Permohonan</span>
@@ -556,34 +712,51 @@
 </div>
 
 <script>
-const form = document.getElementById("myForm");
-const successMsg = document.getElementById("successMsg");
-const errorMsg = document.getElementById("errorMsg");
-const errorText = document.getElementById("errorText");
-const submitBtn = document.getElementById("submitBtn");
-const btnText = document.getElementById("btnText");
-const btnSpinner = document.getElementById("btnSpinner");
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzli94S5XpWVBtq5zWMj3wRkLjICL3vP2D6B6vmyMrmyhe9RLPzY5tSscX1lDJJDNk/exec";
 
-// REPLACE THIS WITH YOUR DEPLOYMENT URL
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwYPNTz0STn_265Hr3qf6wL4Swe5darrU6eYd2itLaWnlYDbCdcBV9KebLyo5evyZCa/exec";
+function addDirectorRow() {
+  const tbody = document.getElementById("directorBody");
+  const rowCount = tbody.rows.length + 1;
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td class="text-center bil">${rowCount}</td>
+    <td><input type="text" class="form-control" name="pengarah_nama" required></td>
+    <td><input type="text" class="form-control" name="pengarah_ic" required></td>
+    <td><input type="text" class="form-control" name="pengarah_alamat" required></td>
+    <td><input type="text" class="form-control" name="pengarah_bandar" required></td>
+    <td><input type="text" class="form-control" name="pengarah_negeri" required></td>
+    <td><input type="text" class="form-control" name="pengarah_poskod" required></td>
+    <td class="text-center">
+      <button type="button" class="btn btn-danger btn-sm" onclick="removeDirectorRow(this)">−</button>
+    </td>
+  `;
+  tbody.appendChild(row);
+}
 
-form.addEventListener("submit", async function(e) {
+function removeDirectorRow(btn) {
+  btn.closest("tr").remove();
+  document.querySelectorAll(".bil").forEach((el, i) => el.innerText = i + 1);
+}
+
+async function convertFileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(",")[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+document.getElementById("myForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
-  const fileInput = document.getElementById("passport");
-  const file = fileInput.files[0];
+  const submitBtn = document.getElementById("submitBtn");
+  const btnText = document.getElementById("btnText");
+  const btnSpinner = document.getElementById("btnSpinner");
+  const successMsg = document.getElementById("successMsg");
+  const errorMsg = document.getElementById("errorMsg");
+  const errorText = document.getElementById("errorText");
 
-  if (!file) {
-    alert("Sila muat naik gambar passport");
-    return;
-  }
-
-  if (file.size > 5 * 1024 * 1024) {
-    alert("Saiz fail terlalu besar. Maksimum 5MB.");
-    return;
-  }
-
-  // Show loading
   submitBtn.disabled = true;
   btnText.textContent = "Sedang menghantar...";
   btnSpinner.classList.remove("d-none");
@@ -591,40 +764,93 @@ form.addEventListener("submit", async function(e) {
   errorMsg.classList.add("d-none");
 
   try {
-    const base64Data = await new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result.split(",")[1]);
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    });
+    const formData = new FormData(this);
+    const payload = {};
 
-    const formData = new FormData(form);
-    formData.append("passport", base64Data);
-    formData.append("fileName", file.name);
-    formData.append("mimeType", file.type);
+    // Collect all checked sijil values
+    const checkedSijil = [];
+    document.querySelectorAll('input[name="jenis_sijil"]:checked').forEach(checkbox => {
+      checkedSijil.push(checkbox.value);
+    });
+    payload.jenis_sijil = checkedSijil.join(", ");
+
+    for (let [key, value] of formData.entries()) {
+      if (key === "jenis_sijil") {
+        // Skip - already handled above
+        continue;
+      } else if (key.startsWith("pengarah_")) {
+        if (!payload[key]) payload[key] = [];
+        payload[key].push(value);
+      } else {
+        payload[key] = value;
+      }
+    }
+
+    // Handle Passport file
+    const passportInput = document.getElementById("passport");
+    const passportFile = passportInput.files[0];
+    
+    if (!passportFile) {
+      throw new Error("Sila muat naik gambar passport");
+    }
+    if (passportFile.size > 5 * 1024 * 1024) {
+      throw new Error("Saiz passport terlalu besar (Max 5MB)");
+    }
+    
+    const passportBase64 = await convertFileToBase64(passportFile);
+    payload.passportData = passportBase64;
+    payload.passportName = passportFile.name;
+    payload.passportType = passportFile.type;
+
+    // Handle SSM files
+    const ssmFiles = document.getElementById("dokumenSSM").files;
+    if (ssmFiles.length === 0) throw new Error("Sila muat naik dokumen SSM");
+    if (ssmFiles.length > 4) throw new Error("Maksimum 4 fail SSM");
+    
+    payload.ssmFilesData = [];
+    for (let i = 0; i < ssmFiles.length; i++) {
+      const file = ssmFiles[i];
+      payload.ssmFilesData.push({
+        data: await convertFileToBase64(file),
+        name: file.name || `ssm_${i+1}.pdf`,
+        type: file.type || "application/pdf"
+      });
+    }
+
+    // Handle CIDB files
+    const cidbFiles = document.getElementById("dokumenCIDB").files;
+    if (cidbFiles.length === 0) throw new Error("Sila muat naik dokumen CIDB");
+    if (cidbFiles.length > 4) throw new Error("Maksimum 4 fail CIDB");
+    
+    payload.cidbFilesData = [];
+    for (let i = 0; i < cidbFiles.length; i++) {
+      const file = cidbFiles[i];
+      payload.cidbFilesData.push({
+        data: await convertFileToBase64(file),
+        name: file.name || `cidb_${i+1}.pdf`,
+        type: file.type || "application/pdf"
+      });
+    }
 
     const response = await fetch(SCRIPT_URL, {
       method: "POST",
-      body: formData
+      body: JSON.stringify(payload)
     });
 
     const result = await response.json();
 
     if (result.status === "success") {
-      form.reset();
       successMsg.classList.remove("d-none");
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      setTimeout(() => {
-        successMsg.classList.add("d-none");
-      }, 5000);
+      this.reset();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => successMsg.classList.add("d-none"), 5000);
     } else {
-      throw new Error(result.message || "Unknown error");
+      throw new Error(result.message || "Ralat tidak diketahui");
     }
 
   } catch (error) {
-    console.error("Error:", error);
-    errorText.textContent = error.message || "Sila cuba lagi.";
+    console.error(error);
+    errorText.textContent = error.message;
     errorMsg.classList.remove("d-none");
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   } finally {
@@ -633,70 +859,7 @@ form.addEventListener("submit", async function(e) {
     btnSpinner.classList.add("d-none");
   }
 });
-
-function addDirectorRow() {
-  const tbody = document.getElementById("directorBody");
-  const rowCount = tbody.rows.length + 1;
-
-  const row = document.createElement("tr");
-
-  row.innerHTML = `
-    <td class="text-center bil">${rowCount}</td>
-
-    <td>
-      <input type="text" class="form-control" name="namaDirector[]" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="IcDirector[]" maxlength="12" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="Alamat[]" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="Bandar[]" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="Negeri[]" required>
-    </td>
-
-    <td>
-      <input type="text" class="form-control" name="Poskod[]" maxlength="5" required>
-    </td>
-
-    <td class="text-center">
-      <button type="button" class="btn btn-danger btn-sm" onclick="removeDirectorRow(this)">🗑</button>
-    </td>
-  `;
-
-  tbody.appendChild(row);
-  updateBil();
-}
-
-function removeDirectorRow(button) {
-  const tbody = document.getElementById("directorBody");
-
-  if (tbody.rows.length === 1) {
-    alert("Sekurang-kurangnya seorang pengarah / pemilik diperlukan.");
-    return;
-  }
-
-  button.closest("tr").remove();
-  updateBil();
-}
-
-function updateBil() {
-  const bilCells = document.querySelectorAll(".bil");
-  bilCells.forEach((cell, index) => {
-    cell.textContent = index + 1;
-  });
-}
-
 </script>
 
 </body>
 </html>
-
