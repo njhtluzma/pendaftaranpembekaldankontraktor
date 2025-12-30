@@ -2,164 +2,398 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pendaftaran Kontraktor Awam 2025</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
       line-height: 1.6;
-      margin: 40px;
-      color: #000;
     }
-    .center {
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      padding: 40px 30px;
       text-align: center;
     }
-    h1, h2, h3 {
-      margin: 5px 0;
+
+    .header .arabic {
+      font-size: 18px;
+      margin-bottom: 10px;
+      opacity: 0.9;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 15px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    table, th, td {
-      border: 1px solid #000;
+
+    .header .address {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 15px;
+      line-height: 1.8;
     }
-    th, td {
-      padding: 8px;
+
+    .banner {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 30px;
       text-align: center;
     }
-    td.left {
-      text-align: left;
+
+    .banner h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      text-transform: uppercase;
     }
-    ol {
-      margin-left: 20px;
+
+    .banner h3 {
+      font-size: 20px;
+      font-weight: 600;
     }
-    .footer {
-      margin-top: 40px;
-      text-align: right;
+
+    .content {
+      padding: 40px;
+    }
+
+    .intro {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      border-left: 5px solid #667eea;
+    }
+
+    .intro p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .intro strong {
+      color: #667eea;
+      font-weight: 700;
+    }
+
+    .date-highlight {
+      background: #fff3cd;
+      padding: 3px 8px;
+      border-radius: 4px;
       font-weight: bold;
+      color: #856404;
+    }
+
+    .price-table {
+      width: 100%;
+      margin: 30px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .price-table thead {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .price-table th {
+      padding: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .price-table td {
+      padding: 18px;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .price-table tbody tr:hover {
+      background: #f8f9fa;
+      transition: background 0.3s;
+    }
+
+    .price-table .grade {
+      font-weight: 600;
+      color: #667eea;
+    }
+
+    .price-table .price {
+      font-weight: 700;
+      color: #2a5298;
+      font-size: 18px;
+    }
+
+    .requirements {
+      margin: 30px 0;
+    }
+
+    .requirement-item {
+      background: white;
+      padding: 25px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: 2px solid #e9ecef;
+      transition: all 0.3s;
+    }
+
+    .requirement-item:hover {
+      border-color: #667eea;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+    }
+
+    .requirement-number {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 35px;
+      font-weight: bold;
+      margin-right: 15px;
+      font-size: 18px;
+    }
+
+    .requirement-content {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 60px);
+    }
+
+    .doc-list {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .doc-item {
+      padding: 10px 0;
+      padding-left: 25px;
+      position: relative;
+      color: #495057;
+    }
+
+    .doc-item:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .note {
+      background: #e7f3ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      border-left: 4px solid #0066cc;
+      font-size: 14px;
+      color: #004085;
+    }
+
+    .footer {
+      background: #2a5298;
+      color: white;
+      padding: 30px;
+      text-align: right;
+      margin-top: 40px;
+    }
+
+    .footer-title {
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    strong {
+      color: #667eea;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        padding: 20px;
+      }
+      
+      .header h1 {
+        font-size: 22px;
+      }
+
+      .banner h2 {
+        font-size: 20px;
+      }
+
+      .price-table th, .price-table td {
+        padding: 12px 8px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="header">
+      <div class="arabic">مجلس دائرة ڤڠكالن هولو</div>
+      <h1>Majlis Daerah Pengkalan Hulu</h1>
+      <div class="address">
+        Wisma Kroh, Jalan Sri Adika Raja<br>
+        33100 Pengkalan Hulu<br>
+        PERAK DARUL RIDZUAN
+      </div>
+    </div>
 
-  <div class="center">
-    <p>مجلس دائرة ڤڠكالن هولو</p>
-    <h2>MAJLIS DAERAH PENGKALAN HULU</h2>
-    <p>
-      Wisma Kroh, Jalan Sri Adika Raja<br>
-      33100 Pengkalan Hulu<br>
-      PERAK DARUL RIDZUAN
-    </p>
+    <div class="banner">
+      <h2>Pendaftaran Kontraktor Awam</h2>
+      <h3>Bangunan Bagi Tahun 2025</h3>
+    </div>
+
+    <div class="content">
+      <div class="intro">
+        <p>
+          Adalah dipelawa kontraktor-kontraktor <strong>BUMIPUTERA</strong> yang berdaftar
+          dengan Lembaga Pembangunan Industri Pembinaan (CIDB) dan Pusat Khidmat
+          Kontraktor (PKK) dalam kelas dan jenis pendaftaran yang berkaitan dan yang
+          masih membuat tawaran buat masa ini untuk berdaftar dengan Majlis Daerah
+          Pengkalan Hulu untuk tempoh <span class="date-highlight">6 Januari 2025 HINGGA 30 Jun 2025</span>.
+        </p>
+      </div>
+
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th style="width: 10%">BIL</th>
+            <th style="width: 40%">PERKARA</th>
+            <th style="width: 25%">KELAS</th>
+            <th style="width: 25%">HARGA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="5">1.</td>
+            <td rowspan="5" style="text-align: left; font-weight: 600;">PENDAFTARAN KONTRAKTOR</td>
+            <td class="grade">GRED G1</td>
+            <td class="price">RM 50.00</td>
+          </tr>
+          <tr>
+            <td class="grade">GRED G2</td>
+            <td class="price">RM 75.00</td>
+          </tr>
+          <tr>
+            <td class="grade">GRED G3</td>
+            <td class="price">RM 100.00</td>
+          </tr>
+          <tr>
+            <td class="grade">GRED G4 / G5</td>
+            <td class="price">RM 150.00</td>
+          </tr>
+          <tr>
+            <td class="grade">GRED G6 / G7</td>
+            <td class="price">RM 250.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="requirements">
+        <div class="requirement-item">
+          <span class="requirement-number">1</span>
+          <div class="requirement-content">
+            <p>Untuk maksud ini kontraktor-kontraktor yang ingin membuat pendaftaran <strong>DIWAJIBKAN</strong> membawa:</p>
+            <div class="doc-list">
+              <div class="doc-item">Perakuan Pendaftaran Atau Kad Perakuan Permohonan Pendaftaran Lembaga Pembangunan Industri Pembinaan Malaysia (CIDB)</div>
+              <div class="doc-item">Sijil Pendaftar Asal Pusat Khidmat Kontraktor (PKK)</div>
+              <div class="doc-item">Sijil Pengiktirafan Taraf Bumiputera</div>
+              <div class="doc-item">Sijil Suruhanjaya Syarikat Malaysia (SSM)</div>
+              <div class="doc-item">Sijil Pendaftaran Kementerian Kewangan (Jika Ada)</div>
+              <div class="doc-item">Lain-Lain Sijil</div>
+              <div class="doc-item">Gambar Pemilik Berukuran Passport</div>
+              <div class="doc-item">Cop Rasmi Syarikat</div>
+            </div>
+            <div class="note">
+              Salinan-salinan perakuan dan sijil yang berkenaan boleh diterima jika
+              disahkan oleh pejabat yang mengeluarkannya dan sijil dari Majlis Daerah
+              Pengkalan Hulu.
+            </div>
+          </div>
+        </div>
+
+        <div class="requirement-item">
+          <span class="requirement-number">2</span>
+          <div class="requirement-content">
+            <p>Pendaftaran boleh dibuat jam <strong>8.00 pagi hingga 4.00 petang</strong>
+            dan pada hari jumaat jam <strong>8.00 pagi hingga 3.30 petang</strong>
+            semasa waktu pejabat di kaunter Jabatan Kejuruteraan
+            Majlis Daerah Pengkalan Hulu.</p>
+          </div>
+        </div>
+
+        <div class="requirement-item">
+          <span class="requirement-number">3</span>
+          <div class="requirement-content">
+            <p>Bayaran bagi pendaftaran tersebut hendaklah dibuat dalam Ringgit Malaysia
+            dan <strong>dalam bentuk Pembayaran atas talian sahaja</strong>.</p>
+          </div>
+        </div>
+
+        <div class="requirement-item">
+          <span class="requirement-number">4</span>
+          <div class="requirement-content">
+            <p>Sebarang rayuan untuk mendaftar selepas daripada tempoh tersebut
+            tidak akan dilayan.</p>
+          </div>
+        </div>
+
+        <div class="requirement-item">
+          <span class="requirement-number">5</span>
+          <div class="requirement-content">
+            <p>Hanya kontraktor yang berdaftar sahaja akan diberikan pertimbangan
+            ke atas pemberian kerja-kerja sebut harga dan kerja-kerja kecil
+            yang dikeluarkan oleh majlis.</p>
+          </div>
+        </div>
+
+        <div class="requirement-item">
+          <span class="requirement-number">6</span>
+          <div class="requirement-content">
+            <p>Sebarang permohonan yang tidak mengikut kriteria yang dikehendaki /
+            tidak lengkap akan mengakibatkan pendaftaran tuan/puan akan ditolak.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-title">Arahan</div>
+        <div class="footer-title">Yang Dipertua</div>
+        <div class="footer-title">Majlis Daerah Pengkalan Hulu</div>
+      </div>
+    </div>
   </div>
-
-  <hr>
-
-  <div class="center">
-    <h3>PENDAFTARAN KONTRAKTOR AWAM</h3>
-    <h3>BANGUNAN BAGI TAHUN 2025</h3>
-  </div>
-  
-  <hr>
-
-  <p>
-    Adalah dipelawa kontraktor-kontraktor <strong>BUMIPUTERA</strong> yang berdaftar
-    dengan Lembaga Pembangunan Industri Pembinaan (CIDB) dan Pusat Khidmat
-    Kontraktor (PKK) dalam kelas dan jenis pendaftaran yang berkaitan dan yang
-    masih membuat tawaran buat masa ini untuk berdaftar dengan Majlis Daerah
-    Pengkalan Hulu untuk tempoh <strong>6 Januari 2025 HINGGA 30 Jun 2025</strong>.
-  </p>
-
-  <table>
-    <tr>
-      <th>BIL</th>
-      <th>PERKARA</th>
-      <th>KELAS</th>
-      <th>HARGA</th>
-    </tr>
-    <tr>
-      <td rowspan="5">1.</td>
-      <td rowspan="5" class="left">PENDAFTARAN KONTRAKTOR</td>
-      <td>GRED G1</td>
-      <td>RM 50.00</td>
-    </tr>
-    <tr>
-      <td>GRED G2</td>
-      <td>RM 75.00</td>
-    </tr>
-    <tr>
-      <td>GRED G3</td>
-      <td>RM 100.00</td>
-    </tr>
-    <tr>
-      <td>GRED G4 / G5</td>
-      <td>RM 150.00</td>
-    </tr>
-    <tr>
-      <td>GRED G6 / G7</td>
-      <td>RM 250.00</td>
-    </tr>
-  </table>
-
-  <ol>
-    <li>
-      Untuk maksud ini kontraktor-kontraktor yang ingin membuat
-      pendaftaran <strong> DIWAJIBKAN</strong> membawa:
-      <ol type="I">
-        <li>Perakuan Pendaftaran Atau Kad Perakuan Permohonan Pendaftaran Lembaga Pembangunan Industri Pembinaan Malaysia (CIDB).</li>
-        <li>Sijil Pendaftar Asal Pusat Khidmat Kontraktor (PKK).</li>
-        <li>Sijil Pengiktirafan Taraf Bumiputera.</li>
-        <li>Sijil Suruhanjaya Syarikat Malaysia (SSM).</li>
-        <li>Sijil Pendaftaran Kementerian Kewangan. (Jika Ada)</li>
-        <li>Lain-Lain Sijil.</li>
-        <li>Gambar Pemilik Berukuran Passport.</li>
-        <li>Cop Rasmi Syarikat.</li>
-      </ol>
-      <p>
-        Salinan-salinan perakuan dan sijil yang berkenaan boleh diterima jika
-        disahkan oleh pejabat yang mengeluarkannya dan sijil dari Majlis Daerah
-        Pengkalan Hulu.
-      </p>
-    </li>
-
-    <li>
-      Pendaftaran boleh dibuat jam <strong>8.00 pagi hingga 4.00 petang</strong>
-      dan pada hari jumaat jam <strong>8.00 pagi hingga 3.30 petang</strong>
-      semasa waktu pejabat di kaunter Jabatan Kejuruteraan
-      Majlis Daerah Pengkalan Hulu.
-    </li>
-
-    <li>
-      Bayaran bagi pendaftaran tersebut hendaklah dibuat dalam Ringgit Malaysia
-      dan <strong>dalam bentuk Pembayaran atas talian sahaja</strong>
-    </li>
-
-    <li>
-      Sebarang rayuan untuk mendaftar selepas daripada tempoh tersebut
-      tidak akan dilayan.
-    </li>
-
-    <li>
-      Hanya kontraktor yang berdaftar sahaja akan diberikan pertimbangan
-      ke atas pemberian kerja-kerja sebut harga dan kerja-kerja kecil
-      yang dikeluarkan oleh majlis.
-    </li>
-
-    <li>
-      Sebarang permohonan yang tidak mengikut kriteria yang dikehendaki /
-      tidak lengkap akan mengakibatkan pendaftaran tuan/puan akan ditolak.
-    </li>
-  </ol>
-
-  <div class="footer">
-    ARAHAN<br>
-    YANG DIPERTUA<br>
-    MAJLIS DAERAH PENGKALAN HULU
-  </div>
-  
- <p>
-	<a href="page2.html">Seterusnya</a>
- </p>
-
 </body>
 </html>
