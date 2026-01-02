@@ -916,6 +916,24 @@
 		<div class="alert alert-info">
 		  <strong>🏦 Pembayaran Secara Atas Talian Sahaja</strong><br><br>
 
+		 <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Gred CIDB <span class="required-star">*</span></label>
+            <select class="form-select" id="cidbGred" name="cidb_gred_bayaran" required>
+              <option value="">-- Sila Pilih Gred --</option>
+              <option value="G1" data-amount="50">GRED G1 – RM 50</option>
+              <option value="G2" data-amount="75">GRED G2 – RM 75</option>
+              <option value="G3" data-amount="100">GRED G3 – RM 100</option>
+              <option value="G4/G5" data-amount="150">GRED G4 / G5 – RM 150</option>
+              <option value="G6/G7" data-amount="250">GRED G6 / G7 – RM 250</option>
+            </select>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Jumlah Bayaran (RM)</label>
+            <input type="text" class="form-control" id="jumlahBayaran" name="jumlah_bayaran" placeholder="Akan dipaparkan secara automatik" readonly>
+          </div>
+		  
+        </div>
 		  <table class="table table-borderless mb-0">
 			<tr>
 			  <td width="35%"><strong>Nama Akaun</strong></td>
@@ -940,25 +958,6 @@
 			Permohonan tanpa bayaran tidak akan diproses.
 		  </small>
 		</div>
-
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Gred CIDB <span class="required-star">*</span></label>
-            <select class="form-select" id="cidbGred" name="cidb_gred_bayaran" required>
-              <option value="">-- Sila Pilih Gred --</option>
-              <option value="G1" data-amount="50">GRED G1 – RM 50</option>
-              <option value="G2" data-amount="75">GRED G2 – RM 75</option>
-              <option value="G3" data-amount="100">GRED G3 – RM 100</option>
-              <option value="G4/G5" data-amount="150">GRED G4 / G5 – RM 150</option>
-              <option value="G6/G7" data-amount="250">GRED G6 / G7 – RM 250</option>
-            </select>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Jumlah Bayaran (RM)</label>
-            <input type="text" class="form-control" id="jumlahBayaran" name="jumlah_bayaran" placeholder="Akan dipaparkan secara automatik" readonly>
-          </div>
-        </div>
 
         <div class="mb-4 file-upload-wrapper">
           <label class="form-label">Muat Naik Bukti Pembayaran <span class="required-star">*</span></label>
