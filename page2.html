@@ -589,7 +589,6 @@
           <select name="pendaftaran" class="form-select" required>
             <option value="">-- Sila Pilih --</option>
             <option>Pendaftaran Baru</option>
-            <option>Pendaftaran Semula</option>
           </select>
         </div>
 
@@ -705,7 +704,7 @@
         </div>
 
         <div class="mb-4">
-          <label class="form-label">Alamat E-mel<span class="required-star">*</span></label>
+          <label class="form-label">Alamat E-mel</label>
           <input name="emel" type="email" class="form-control" placeholder="nama@gmail.com" required>
         </div>
 
@@ -781,14 +780,6 @@
               <option>Berhad</option>
             </select>
           </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label">Tarikh Mula<span class="required-star">*</span></label>
-            <input type="date" class="form-control" name="tarikh_mula" required>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label">Tarikh Tamat<span class="required-star">*</span></label>
-            <input type="date" class="form-control" name="tarikh_mula" required>
-          </div>
         </div>
 
         <h6 class="mt-4 fw-bold">Maklumat SSM</h6>
@@ -806,7 +797,7 @@
 
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label class="form-label">Tarikh Tamat Lesen<span class="required-star">*</span></label>
+            <label class="form-label">Tarikh Tamat<span class="required-star">*</span></label>
             <input type="date" class="form-control" name="ssm_tarikh_tamat" required>
           </div>
         </div>
@@ -892,6 +883,7 @@
             <option value="CE">CE – Kejuruteraan Awam</option>
             <option value="B">B – Bangunan</option>
             <option value="ME">ME – Mekanikal & Elektrikal</option>
+			<option value="ME">F – Fasiliti</option>
           </select>
         </td>
         <td>
@@ -905,59 +897,86 @@
   </table>
 </div>
 
-        <!-- Bahagian Pembayaran -->
-		<div class="section-title">
-		  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-			<path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-		  </svg>
-		  Maklumat Pembayaran
-		</div>
-
-		<div class="alert alert-info">
-		  <strong>🏦 Pembayaran Secara Atas Talian Sahaja</strong><br><br>
-
-		 <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Gred CIDB <span class="required-star">*</span></label>
-            <select class="form-select" id="cidbGred" name="cidb_gred_bayaran" required>
-              <option value="">-- Sila Pilih Gred --</option>
-              <option value="G1" data-amount="50">GRED G1 – RM 50</option>
-              <option value="G2" data-amount="75">GRED G2 – RM 75</option>
-              <option value="G3" data-amount="100">GRED G3 – RM 100</option>
-              <option value="G4/G5" data-amount="150">GRED G4 / G5 – RM 150</option>
-              <option value="G6/G7" data-amount="250">GRED G6 / G7 – RM 250</option>
-            </select>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label">Jumlah Bayaran (RM)</label>
-            <input type="text" class="form-control" id="jumlahBayaran" name="jumlah_bayaran" placeholder="Akan dipaparkan secara automatik" readonly>
-          </div>
-		  
+		<div class="mb-4 file-upload-wrapper">
+          <label class="form-label">Dokumen CIDB<span class="required-star">*</span> <small>(Max 4)</small></label>
+          <input type="file" class="form-control" id="dokumenSSM" multiple accept=".pdf,.jpg,.jpeg,.png" required>
         </div>
-		  <table class="table table-borderless mb-0">
-			<tr>
-			  <td width="35%"><strong>Nama Akaun</strong></td>
-			  <td>: MAJLIS DAERAH PENGKALAN HULU</td>
-			</tr>
-			<tr>
-			  <td><strong>Pautan Pembayaran</strong></td>
-			  <td>
-				: <a href="https://www.maybank2u.com.my/home/m2u/common/login.do"
-					 target="_blank"
-					 class="fw-bold text-primary text-decoration-none">
-					Klik Di Sini Untuk Pembayaran
-				  </a>
-			  </td>
-			</tr>
-		  </table>
 
-		  <hr>
+        <!-- Bahagian Pembayaran -->
+<div class="section-title">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+  </svg>
+  Maklumat Pembayaran
+</div>
 
-		  <small class="text-danger">
-			⚠️ Sila buat bayaran mengikut Gred CIDB yang dipilih dan muat naik bukti pembayaran.
-			Permohonan tanpa bayaran tidak akan diproses.
-		  </small>
-		</div>
+<div class="alert alert-info">
+  <strong>🏦 Pembayaran Secara Atas Talian (MAYBANK SAHAJA)</strong><br><br>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Gred CIDB <span class="required-star">*</span></label>
+      <select class="form-select" id="cidbGred" name="cidb_gred_bayaran" required>
+        <option value="">-- Sila Pilih Gred --</option>
+        <option value="G1" data-amount="50">GRED G1 – RM 50</option>
+        <option value="G2" data-amount="75">GRED G2 – RM 75</option>
+        <option value="G3" data-amount="100">GRED G3 – RM 100</option>
+        <option value="G4/G5" data-amount="150">GRED G4 / G5 – RM 150</option>
+        <option value="G6/G7" data-amount="250">GRED G6 / G7 – RM 250</option>
+      </select>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label class="form-label">Jumlah Bayaran (RM)</label>
+      <input type="text" class="form-control" id="jumlahBayaran" name="jumlah_bayaran"
+             placeholder="Akan dipaparkan secara automatik" readonly>
+    </div>
+  </div>
+
+  <!-- Arahan Rujukan Pembayaran -->
+  <div class="alert alert-warning mt-3">
+    <strong>📌 Penting:</strong><br>
+    Sila pastikan anda mengisi maklumat berikut semasa membuat pembayaran di Maybank:
+    <ul class="mb-0">
+      <li><strong>RUJUKAN 1:</strong> PENDAFTARAN KONTRAKTOR</li>
+      <li><strong>RUJUKAN 2:</strong> NAMA SYARIKAT</li>
+    </ul>
+    Maklumat ini mestilah jelas pada <strong>resit pembayaran Maybank</strong> yang dimuat naik.
+  </div>
+       
+	   
+	   <!-- Video Tutorial -->
+  <div class="mt-3">
+    <strong>🎥 Video Tutorial Pembayaran:</strong><br>
+    <a href="https://www.youtube.com/watch?v=VIDEO_ID_ANDA"
+       target="_blank"
+       class="text-decoration-none">
+      Klik di sini untuk menonton cara membuat pembayaran melalui Maybank2u
+    </a>
+  </div>
+  
+   <hr>
+   
+  <table class="table table-borderless mb-0">
+    <tr>
+      <td width="35%"><strong>Pautan Pembayaran</strong></td>
+      <td>
+        : <a href="https://www.maybank2u.com.my/home/m2u/common/login.do"
+             target="_blank"
+             class="fw-bold text-primary text-decoration-none">
+            Klik Di Sini Untuk Pembayaran
+          </a>
+      </td>
+    </tr>
+  </table>
+
+
+  <small class="text-danger">
+    ⚠️ Sila buat bayaran mengikut Gred CIDB yang dipilih dan muat naik bukti pembayaran.
+    Permohonan tanpa bayaran tidak akan diproses.
+  </small>
+</div>
+
 
         <div class="mb-4 file-upload-wrapper">
           <label class="form-label">Muat Naik Bukti Pembayaran <span class="required-star">*</span></label>
